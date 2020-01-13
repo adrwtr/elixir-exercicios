@@ -7,13 +7,6 @@ defmodule Exercicio3 do
         nr_valor2 = 20
         ds_enter = "\n"
 
-        arrString = [
-            "adriano",
-            "waltrick",
-            "testar",
-            "chaves"
-        ]
-
         # // if
         if nr_valor1 < nr_valor2 do
             IO.puts "#{nr_valor1} eh menor que #{nr_valor2}"
@@ -69,47 +62,79 @@ defmodule Exercicio3 do
         end)
 
         # IO.puts ds_enter
-# IO.puts "contar ate 5: "
-# IO.puts ds_enter
-# for (i = 0 i <= 10 i++) {
-#    IO.puts i
-#    IO.puts ds_enter
-#    if (i == 5) {
-#       break
-#    }
-# }
-# // while
-# while (nr_valor1 > 10) {
-#    IO.puts nr_valor1
-#    IO.puts ds_enter
-#    nr_valor1 = nr_valor1 - 1
-# }
-# // foreach
-# foreach(arrString as nr_key => ds_valor) {
-#    IO.puts "Chave: " . nr_key
-#    IO.puts " valor: " . ds_valor
-#    IO.puts ds_enter
-# }
-# // Escreva um programa que imprime na tela os numeros
-# // de 1 a 30 exceto os numeros
-# // múltiplos de 3.
-# for (i = 1 i <= 100 i++) {
-#    if (i % 3 != 0) {
-#       IO.puts i
-#       IO.puts " "
-#    }
-# }
-# IO.puts ds_enter
-# // Escreva um programa que imprime a tabuada
-# // dos numeros de 3 a 5 de acordo com o padrao
-# for (i = 3 i <= 5 i++) {
-#    IO.puts "tabuada de " . i
-#    IO.puts ds_enter
-#    for (a = 0 a <= 10 a++) {
-#       IO.puts i . " * " . a . " = " . i * a
-#       IO.puts ds_enter
-#    }
-# }
+        # IO.puts "contar ate 5: "
+        # IO.puts ds_enter
+        # for (i = 0 i <= 10 i++) {
+        #    IO.puts i
+        #    IO.puts ds_enter
+        #    if (i == 5) {
+        #       break
+        #    }
+        # }
+        Enum.reduce_while(
+            1..10,
+            0,
+            fn x, acc ->
+                if x < 5 do
+                    IO.puts x
+                    {:cont, acc + x}
+                else
+                    {:halt, acc}
+                end
+            end
+        )
+
+
+        # while
+        # while ($nr_valor1 > 10) {
+        #    echo $nr_valor1;
+        #    echo $ds_enter;
+        #    $nr_valor1 = $nr_valor1 - 1;
+        # }
+        nr_valor1 = 10
+        imprimir_valor(nr_valor1)
+
+        # // foreach
+        # foreach($arrString as $nr_key => $ds_valor) {
+        #    echo "Chave: " . $nr_key;
+        #    echo " valor: " . $ds_valor;
+        #    echo $ds_enter;
+        # }
+        arrString = %{
+            a: "adriano",
+            b: "waltrick",
+            c: "testar",
+            d: "chaves"
+        }
+
+        for {k, x} <- arrString do
+            IO.puts("chave: #{k} =>  valor: #{x}")
+        end
+
+        # // Escreva um programa que imprime na tela os numeros
+        # // de 1 a 30 exceto os numeros
+        # // múltiplos de 3.
+        for n <- 1..4 do
+            if ((rem n, 3) != 0) do
+                IO.puts n
+            end
+        end
+
+
+
+        # // Escreva um programa que imprime a tabuada
+        # // dos numeros de 3 a 5 de acordo com o padrao
+
+
+
+        # for (i = 3 i <= 5 i++) {
+        #    IO.puts "tabuada de " . i
+        #    IO.puts ds_enter
+        #    for (a = 0 a <= 10 a++) {
+        #       IO.puts i . " * " . a . " = " . i * a
+        #       IO.puts ds_enter
+        #    }
+        # }
 # // Escreva um programa que desenhe uma
 # // piraide de asteriscos (*). A saida do seu programa
 # // deve seguir o padrao abaixo:
@@ -137,5 +162,12 @@ defmodule Exercicio3 do
 #    IO.puts "\n"
 #    nr_tamanho = nr_tamanho - 1
 # }
+    end
+
+    def imprimir_valor(nr_valor) do
+        if (nr_valor > 1) do
+            IO.puts nr_valor
+            imprimir_valor((nr_valor - 1))
+        end
     end
 end
