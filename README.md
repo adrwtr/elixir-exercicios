@@ -13,8 +13,16 @@ recompile() - recompile dentro do iex
 Exercicio1.main()
 
 
-
 # Exericio 1
 
 Tipos de dados:
 Exercicio1.main()
+
+Operadores:
+Exercicio2.main()
+
+Controle de fluxo:
+Exercicio3.main()
+
+Funções:
+Exercicio4.main()
