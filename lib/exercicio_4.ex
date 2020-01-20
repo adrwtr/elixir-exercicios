@@ -37,10 +37,16 @@ defmodule Exercicio4 do
         end
     end
 
+    # fibo com pattern match
+    def fibonacci2(1), do: 1
+    def fibonacci2(0), do: 1
+    def fibonacci2(n), do: fibonacci(n - 1) + fibonacci(n - 2)
+
+
     # exemplo funcao em elixir com pattern match
-    def  power(n, k), do: pow(n, k, 1)
+    def  power(n, k), do: power(n, k, 1)
     defp power(_, 0, acc), do: acc
-    defp power(n, k, acc), do: pow(n, k - 1, n * acc)
+    defp power(n, k, acc), do: power(n, k - 1, n * acc)
 
 
     def main do
@@ -53,6 +59,7 @@ defmodule Exercicio4 do
 
         recursivo(1)
         IO.puts fibonacci(5)
+        IO.puts fibonacci2(5)
         IO.puts power(3, 2)
         IO.puts power(3, 3)
 
