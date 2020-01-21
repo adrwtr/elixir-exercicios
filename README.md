@@ -26,3 +26,9 @@ Exercicio3.main()
 
 Funções:
 Exercicio4.main()
+
+funcoes de string:
+Exercicio5.main()
+
+Arrays:
+Exercicio6.main()
