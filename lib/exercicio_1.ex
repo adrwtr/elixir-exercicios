@@ -39,5 +39,14 @@ defmodule Exercicio1 do
         ]
 
         IO.inspect arrString
+
+        # array chave valor
+        arrMapa = %{
+            :chave_a => 'valor a',
+            :chave_b => 'valor b'
+        }
+
+        IO.inspect arrMapa
+
     end
 end
